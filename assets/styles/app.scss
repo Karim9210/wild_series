@@ -1,0 +1,8 @@
+$primary: lightgreen;
+$danger: #ff4136;
+
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    background-color: $primary;
+}
