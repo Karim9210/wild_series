@@ -15,7 +15,7 @@ Class ProgramController extends AbstractController
     public function index(): Response
     {
         return $this->render('program/index.html.twig', [
-            'website' => 'Wild Series',
+            'website' => 'Wild Series'
          ]);
     }
 
@@ -24,9 +24,7 @@ Class ProgramController extends AbstractController
 
     public function show( int $id): Response
     {
-        return $this->render('program/show.html.twig', [
-            'id' => '4',
-         ]);
+        return $this->render('program/show.html.twig');
     }
 
 }
