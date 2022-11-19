@@ -1,10 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Wild Series
+{% block title %}All programs
 {% endblock %}
 
 {% block body %}
-	<h1>{{ website }}
-		index</h1>
-	<img src="{{ asset('build/images/homerpalooza.webp') }}" alt=""/>
+	<h1>Toutes les séries:
+	</h1>
+	{% for program in programs %}
+		<div class="d-flex align-content-between flex-wrap">
+			<div style="margin: 3rem;">
+				<div
+					class="card" style="width: 18rem;">
+
+					{# {{ loop.index }} #}
+					<img src={{ program.poster }} class="card-img-top" alt="">
+					<div class="card-body">
+						<h3 class="card-title">{{ program.title }}
+							/ - Catégorie :
+							{{ program.category.name }}</h3>
+						<p class="card-text">S{{ program.synopsis }}</p>
+						{# <a href="#" class="btn btn-primary">Go somewhere</a> #}
+						<a href="{{ path("program_id", { id: program.id }) }}" class="btn btn-primary">Voir la fiche</a>
+
+					</div>
+				</div>
+
+			</div>
+
+		{% else %}
+			Aucune série trouvée.
+		{% endfor %}
+
+		<a href="{{ path('app_index') }}">
+			Retour à l'accueil
+		</a>
+	</div>
+
 {% endblock %}
