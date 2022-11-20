@@ -1,20 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Série #{{ program.id }}
+{% block title %}Série
 {% endblock %}
 
 {% block body %}
-	<div class="media">
-		<img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
-		<div class="media-body">
-			<h1 class="mt-0">{{ program.title }}</h1>
-			<p>{{ program.synopsis }}</p>
-			<p>Catégorie :
-				{{ program.category.name }}</p>
-		</div>
-	</div>
 
-	<a class="text-white" href="{{ path('program_index') }}">
-		Retour à la liste des programmes
-	</a>
-{% endblock %}
+{% for season in seasons %}
+	<div class="card" style="width: 18rem;">
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item">
+				<h5 class="card-title">Saison :
+
+					{{season.number }}</h5>
+				<p class="card-text text-dark mb-5">{{ season.description }}</p>
+				<a href="{{ path("program_season_show", { seasonId:season.id , programId: program.id }) }}">To the season page</a>
+			</li>
+
+		</ul>
+	</div>
+</div>{% endfor %}<div class="media">
+<img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
+<div class="media-body">
+	<h1 class="mt-0">{{ program.title }}</h1>
+	<p>{{ program.synopsis }}</p>
+	<p>Catégorie :
+		{{ program.category.name }}</p>
+
+</div></div><a class="text-white" href="{{ path('program_index') }}">Retour à la liste des programmes</a>{% endblock %}

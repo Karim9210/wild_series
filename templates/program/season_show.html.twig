@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Season/show
+{% endblock %}
+{% block body %}
+	<div>
+		<div class="card m-4">
+			<div class="card-body">
+				<h1>Season
+					{{ season.number }}
+					of
+					{{ program.title }}
+				</h1>
+				<img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
+				<p>Category :
+					{{ program.category.name }}</p>
+			</div>
+
+			<div class="card m-4">
+				<div class="card-body">
+					<h2>
+						Year :
+						{{ season.year }}
+						/ Description :
+						{{ season.description }}</h2>
+					<h4>{{ program.synopsis }}</h4>
+					<div class="card">
+						<div class="card-body">
+							<p>Listes des épisodes:
+							</p>
+							{% for episode in episodes %}
+								<div>
+									<a href="">episodes :
+										{{ episode.number }},
+										{{ episode.title }}</a>
+								</div>
+							{% endfor %}
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+{% endblock %}

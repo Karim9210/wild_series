@@ -4,27 +4,31 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Toutes les séries:
-	</h1>
-	{% for program in programs %}
-		<div class="d-flex align-content-between flex-wrap">
-			<div style="margin: 3rem;">
-				<div
-					class="card" style="width: 18rem;">
+	<div class="d-flex align-content-between flex-wrap">
 
-					{# {{ loop.index }} #}
-					<img src={{ program.poster }} class="card-img-top" alt="">
-					<div class="card-body">
-						<h3 class="card-title">{{ program.title }}
-							/ - Catégorie :
-							{{ program.category.name }}</h3>
-						<p class="card-text">S{{ program.synopsis }}</p>
-						{# <a href="#" class="btn btn-primary">Go somewhere</a> #}
-						<a href="{{ path("program_id", { id: program.id }) }}" class="btn btn-primary">Voir la fiche</a>
+		<h1>Toutes les séries:
+		</h1>
 
+		{% for program in programs %}
+			<div class="d-flex align-content-between flex-wrap">
+				<div style="margin: 3rem;">
+					<div
+						class="card" style="width: 18rem;">
+
+						{# {{ loop.index }} #}
+						<img src={{ program.poster }} class="card-img-top" alt="">
+						<div class="card-body">
+							<h3 class="card-title">{{ program.title }}
+								/ - Catégorie :
+								{{ program.category.name }}</h3>
+							<p class="card-text">S{{ program.synopsis }}</p>
+							{# <a href="#" class="btn btn-primary">Go somewhere</a> #}
+							<a href="{{ path("program_id", { id: program.id }) }}" class="btn btn-primary">Voir la fiche</a>
+
+						</div>
 					</div>
-				</div>
 
+				</div>
 			</div>
 
 		{% else %}
@@ -35,5 +39,4 @@
 			Retour à l'accueil
 		</a>
 	</div>
-
 {% endblock %}

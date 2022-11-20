@@ -9,10 +9,7 @@
 			<h2>{{ loop.index }}
 				/ - Catégorie :
 				<a class="text-white" href="{{ path("category_show", { categoryName: category.name }) }}">{{ category.name }}</a>
-				{# <a href="{{ path( 'category_' .{ categoryName }, { index: category.name }) }}" class="text-white">{{ category.name }}</a> #}
 			</h2>
-
-			{# <a href="{{ path("categor", { name: categories.name }) }}" class="text-white">Voir la fiche</a> #}
 		</div>
 	{% endfor %}
 {% endblock %}
